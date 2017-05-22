@@ -3,7 +3,7 @@
   "version": "1.0.0",
   "description": "",
   "scripts": {
-    "clean":"rimraf ./build/bundles",
+    "clean": "rimraf ./build/bundles",
     "build": "webpack",
     "postinstall": "npm run build",
     "start": "cd build && static"
@@ -41,6 +41,7 @@
     "reflect-metadata": "^0.1.10",
     "rimraf": "^2.6.1",
     "style-loader": "^0.17.0",
+    "to-string-loader": "^1.1.5",
     "ts-loader": "^2.1.0",
     "typescript": "^2.3.2",
     "webpack": "^2.5.1"

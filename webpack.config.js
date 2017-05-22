@@ -34,16 +34,17 @@ module.exports = {
                 test:/\.html$/,
                 loader:'html-loader'
             },
-            // {
-            //     test:/\.css$/,
-            //     loader:'style-loader!css-loader'
-            // },
+            {
+                test:/.*app.*\.css$/,
+                loaders:['to-string-loader','css-loader']
+            },
             {
                 test:/\.css$/,
                 loader:ExtractTextPlugin.extract({
                     fallback:'style-loader',
                     use:'css-loader'
-                })
+                }),
+                exclude:/.*app.*\.css$/
             },
             {
                 test:/\.(eot|svg|ttf|woff|woff2)$/,
