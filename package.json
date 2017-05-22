@@ -3,11 +3,10 @@
   "version": "1.0.0",
   "description": "",
   "scripts": {
-    "clean": "rimraf ./build",
+    "clean":"rimraf ./build/bundles",
     "build": "webpack",
-    "clean+build":"npm run clean && npm run build",
     "postinstall": "npm run build",
-    "start":"cd build && static"
+    "start": "cd build && static"
   },
   "author": "cyrilpanicker@gmail.com",
   "license": "ISC",
@@ -21,6 +20,7 @@
     "@angular/platform-browser-dynamic": "^4.1.3",
     "@angular/router": "^4.1.3",
     "angular-in-memory-web-api": "^0.3.2",
+    "bootstrap": "^3.3.7",
     "core-js": "^2.4.1",
     "rxjs": "^5.4.0",
     "zone.js": "^0.8.11"
