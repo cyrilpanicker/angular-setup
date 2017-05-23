@@ -1,5 +1,6 @@
 var webpack = require('webpack');
-const ExtractTextPlugin = require("extract-text-webpack-plugin");
+var HtmlWebpackPlugin = require('html-webpack-plugin');
+var ExtractTextPlugin = require('extract-text-webpack-plugin');
 
 module.exports = {
     devtool:'cheap-module-eval-source-map',
@@ -10,10 +11,10 @@ module.exports = {
         'app':'./source/main'
     },
     output:{
-        path:__dirname+'/build/bundles',
-        // publicPath:'/',
-        filename:'[name].js',
-        chunkFilename:'chunk[id].js'
+        path:__dirname+'/build',
+        publicPath:'/',
+        filename:'scripts/[name].js',
+        chunkFilename:'scripts/chunk[id].js'
     },
     resolve:{
         extensions:['.js','.ts']
@@ -22,7 +23,10 @@ module.exports = {
         new webpack.optimize.CommonsChunkPlugin({
             name:['app','libs','polyfills']
         }),
-        new ExtractTextPlugin('[name].css')
+        new ExtractTextPlugin('styles/app.css'),
+        new HtmlWebpackPlugin({
+            template:'./source/assets/index.html'
+        })
     ],
     module:{
         loaders:[

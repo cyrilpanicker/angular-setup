@@ -3,10 +3,11 @@
   "version": "1.0.0",
   "description": "",
   "scripts": {
-    "clean": "rimraf ./build/bundles",
+    "clean": "rimraf ./build/*",
     "build": "webpack",
-    "postinstall": "npm run build",
-    "start": "cd build && static"
+    "clean+build": "npm run clean && npm run build",
+    "serve": "cd build && static",
+    "start":"webpack-dev-server --content-base build/"
   },
   "author": "cyrilpanicker@gmail.com",
   "license": "ISC",
@@ -44,6 +45,7 @@
     "to-string-loader": "^1.1.5",
     "ts-loader": "^2.1.0",
     "typescript": "^2.3.2",
-    "webpack": "^2.5.1"
+    "webpack": "^2.5.1",
+    "webpack-dev-server": "^2.4.5"
   }
 }
