@@ -5,7 +5,7 @@ var ExtractTextPlugin = require('extract-text-webpack-plugin');
 module.exports = {
     devtool:'cheap-module-eval-source-map',
     entry:{
-        'styles':'./source/styles',
+        'styles':'./source/styles/main',
         'polyfills':'./source/polyfills',
         'libs':'./source/libs',
         'app':'./source/main'
@@ -43,12 +43,24 @@ module.exports = {
                 loaders:['to-string-loader','css-loader']
             },
             {
+                test:/.*app.*\.scss$/,
+                loaders:['to-string-loader','css-loader','sass-loader']
+            },
+            {
                 test:/\.css$/,
                 loader:ExtractTextPlugin.extract({
                     fallback:'style-loader',
                     use:'css-loader'
                 }),
                 exclude:/.*app.*\.css$/
+            },
+            {
+                test:/\.scss$/,
+                loader:ExtractTextPlugin.extract({
+                    fallback:'style-loader',
+                    use:'css-loader!sass-loader'
+                }),
+                exclude:/.*app.*\.scss$/
             },
             {
                 test:/\.(eot|svg|ttf|woff|woff2)$/,
